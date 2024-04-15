@@ -4,10 +4,15 @@ from langchain.vectorstores.chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
-from dotenv import load_dotenv
+from dotenv import load_dotenv, dotenv_values
 import os
 
-os.environ['OPENAI_API_KEY'] = 'YOUR API KEY GOES HERE'
+load_dotenv()
+
+# Access your API key
+api_key = os.getenv('OPENAI_API_KEY')
+
+#print(api_key)
 
 CHROMA_PATH = "chroma"
 
@@ -21,10 +26,9 @@ Answer the question based only on the following context:
 Answer the question based on the above context: {question}
 """
 
-
 def main():
     # Create CLI.
-    openai_api_key = "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"
+    openai_api_key = os.getenv('OPENAI_API_KEY')
     parser = argparse.ArgumentParser()
     parser.add_argument("query_text", type=str, help="The query text.")
     args = parser.parse_args()
