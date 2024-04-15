@@ -5,11 +5,15 @@ from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores.chroma import Chroma
 import os
 import shutil
-from dotenv import load_dotenv
-import os
+from dotenv import load_dotenv, dotenv_values
 
-os.environ['OPENAI_API_KEY'] = 'YOUR API KEY GOES HERE'
+load_dotenv()
 
+# Access your API key
+api_key = os.getenv('OPENAI_API_KEY')
+
+# Now you can use `api_key` to authenticate your requests to OpenAI
+print(api_key)  # Just for demonstration, remove this in production!
 
 CHROMA_PATH = "chroma"
 DATA_PATH = "data/books"
