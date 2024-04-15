@@ -1,11 +1,5 @@
 from langchain_openai import OpenAIEmbeddings
 from langchain.evaluation import load_evaluator
-from dotenv import load_dotenv
-import os
-
-os.environ['OPENAI_API_KEY'] = 'YOUR API KEY GOES HERE'
-
-
 
 def main():
     # Get embedding for a word.
